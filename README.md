@@ -11,7 +11,7 @@ The core objective of the agent is to quote a bid and an ask around a fair value
 * **Start of Game:** High variance; spread is wide.
 * **End of Game:** Variance collapses to zero; spread becomes razor-thin.
 
-## 🧮 The Mathematics
+##  The Mathematics
 
 The engine runs on conditional probability and hypergeometric sampling (drawing without replacement).
 
@@ -23,7 +23,7 @@ The engine runs on conditional probability and hypergeometric sampling (drawing 
 * **Spread Width:** `Spread = k * sqrt(Var[settlement_sum])`  
   *(where `k` is the aggression parameter controlling how tight the market maker quotes).*
 
-## 🏗️ Software Architecture
+##  Software Architecture
 
 The project is structured into modular Python files with clear responsibilities:
 
@@ -34,7 +34,7 @@ The project is structured into modular Python files with clear responsibilities:
 * `simulator.py`: Manages the game loop and runs multi-game Monte Carlo simulations.
 * `visualiser.py`: Generates spread collapse charts, P&L curves, and drawdown distributions.
 
-## 📊 Counterparty Models & Risk Management
+##  Counterparty Models & Risk Management
 
 To test the agent's robustness, it trades against mixed flow:
 1. **Noise Traders:** Trade randomly, paying the spread (the primary revenue source).
@@ -45,7 +45,7 @@ To test the agent's robustness, it trades against mixed flow:
 * **Inventory Skew:** Shifts quotes downward when long (and upward when short) to attract unwinding trades.
 * **Informed Flow Detection:** Exponentially widens the spread after 3+ consecutive same-side hits to choke off toxic flow.
 
-## 💻 Tech Stack
+##  Tech Stack
 * **Python 3.11** (Core Logic)
 * **NumPy / SciPy** (Vectorised math and statistical cross-checks)
 * **Matplotlib** (Data visualisation and charting)
